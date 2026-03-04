@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="OmniSonic Webpage">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OmniSonic: Towards Universal and Holistic Audio Generation from Video and Text</title>
+
+  </script>
+  <style>
+  .hr {width: 100%; height: 1px; margin: 48px 0; background-color: #d6dbdf;}
+  </style>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/bulma.min.css">
+  <link rel="stylesheet" href="./assets/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./assets/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./assets/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="./assets/css/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <!-- custom css file  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/twentytwenty.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+<section class="hero banner">
+  <div class="hero-body">
+    <div class="container is-max-desktop head">
+      <div class="columns is-centered">
+        <div class="column has-text-centered head">
+          <div class="logo">
+          <!-- <a href="index.html">
+            <img src="./assets/images/logo.png" onmouseover="this.src='./assets/images/logo.png';" onmouseout="this.src='./assets/images/logo.png';" width="160px">
+          </a> -->
+          </div>
+          <br>
+
+          <h1 class="title is-3 publication-title"> 
+            <p>OmniSonic: Towards Universal and Holistic Audio Generation from Video and Text</p>
+          </h1>
+
+          <h2 class="title is-5 publication-title">CVPR 2026</h2>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://weiguopian.github.io/">Weiguo Pian</a><sup>1</sup>&nbsp;&nbsp;</span>
+            <span class="author-block">
+              <a href="https://sakshamsingh1.github.io/">Saksham Singh Kushwaha</a><sup>1</sup>&nbsp;&nbsp;</span>
+            <span class="author-block">
+              <a href="https://www.zhiminc.website/">Zhimin Chen</a><sup>2</sup>&nbsp;&nbsp;</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=7LBj70IAAAAJ&hl=en&oi=ao">Shijian Deng</a><sup>1</sup>&nbsp;&nbsp;</span>
+            <span class="author-block">
+              <a href="https://kaiw7.github.io/">Kai Wang</a><sup>3</sup>&nbsp;&nbsp;</span>
+            <span class="author-block">
+              <a href="https://yunhuiguo.github.io/">Yunhui Guo</a><sup>1</sup>&nbsp;&nbsp;</span>
+            <span class="author-block">
+              <a href="https://www.yapengtian.com/">Yapeng Tian</a><sup>1</sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>The University of Texas at Dallas&nbsp;&nbsp;</span>
+            <span class="author-block"><sup>2</sup>Clemson University&nbsp;&nbsp;</span>
+            <span class="author-block"><sup>3</sup>University of Toronto</span>
+          </div>
+
+          <!-- <div class="is-size-6 publication-authors">
+            <span class="author-block">(* Work done during an internship at Adobe)</span>
+          </div> -->
+
+          <!-- pdf -->
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>PDF</span>
+                </a>
+              </span>
+              <!-- arXiv Link. -->
+              <!-- <span class="link-block">
+                <a href="https://arxiv.org/abs/2601.06391" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span> -->
+
+              <span class="link-block">
+                <a href=""
+                   target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+          </div>
+          <!-- pdf -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<style>
+.demo-grid {
+  margin-top: 1.5rem;
+}
+
+/* .demo-card {
+  height: 100%;
+}
+
+.demo-text {
+  font-size: 0.9rem;
+  line-height: 1.35;
+  margin-bottom: 0.25rem;
+} */
+
+.demo-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.demo-text {
+  margin-bottom: 8px;
+}
+
+.video-container {
+  margin-top: auto;   /* 关键：把视频推到卡片底部 */
+}
+
+.video-frame {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
+  background: black;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+</style>
+
+<section class="section">
+<!-- <div class="container is-max-desktop"> -->
+  <div class="container is-max-widescreen"></div>
+  <!-- <h2 class="title is-3 has-text-centered">Demo Videos</h2> -->
+  <div class="columns is-multiline demo-grid">
+    
+    <!-- Video 1 -->
+    <div class="column is-4-desktop is-6-tablet is-12-mobile">
+      <div class="card demo-card">
+        <div class="card-content">
+          <p class="demo-text"><b>On-screen environmental sound:</b> Emergency vehicle sirens blare as people converse in the bustling city street.</p>
+          <p class="demo-text"><b>Off-screen environmental sound:</b> A baby is crying loudly.</p>
+          <p class="demo-text"><b>Off-screen speech:</b> “Whoa, what's all that noise?”</p>
+        </div>
+        
+        <div class="video-container">
+          <div class="card-content" style="padding-top:0">
+            <div class="video-frame">
+              <iframe src="./assets/videos/ambulance_demo.mp4"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Video 2 -->
+    <div class="column is-4-desktop is-6-tablet is-12-mobile">
+      <div class="card demo-card">
+        <div class="card-content">
+          <p class="demo-text"><b>On-screen environmental sound:</b> Birds chirp and tweet as a Baltimore oriole calls out, creating a lively atmosphere in a garden with a feeder.</p>
+          <p class="demo-text"><b>Off-screen speech:</b> Look! What can we see! A pair of birds enjoying the orange!</p>
+        </div>
+
+        <div class="video-container">
+          <div class="card-content" style="padding-top:0">
+            <div class="video-frame">
+              <iframe src="./assets/videos/bird_demo.mp4"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video 3 -->
+    <div class="column is-4-desktop is-6-tablet is-12-mobile">
+      <div class="card demo-card">
+        <div class="card-content">
+          <p class="demo-text"><b>On-screen speech:</b> This ocean, it's a force, a wild, untamed might. And she commands your awe with every breaking light.</p>
+          <p class="demo-text"><b>Off-screen environmental sound:</b> The sea breeze blows on the sea, raising waves.</p>
+        </div>
+
+        <div class="video-container">
+          <div class="card-content" style="padding-top:0">
+            <div class="video-frame">
+              <iframe src="./assets/videos/ocean_demo.mp4"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video 4 -->
+    <div class="column is-4-desktop is-6-tablet is-12-mobile">
+      <div class="card demo-card">
+        <div class="card-content">
+          <p class="demo-text"><b>On-screen speech:</b> Hi everyone, thanks for joining me today, let's dive into your latest project and discuss next concrete steps.</p>
+          <p class="demo-text"><b>Off-screen environmental sound:</b> The sound of birds chirp.</p>
+        </div>
+
+        <div class="video-container">
+          <div class="card-content" style="padding-top:0">
+            <div class="video-frame">
+              <iframe src="./assets/videos/woman_bird_demo.mp4"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video 5 -->
+    <div class="column is-4-desktop is-6-tablet is-12-mobile">
+      <div class="card demo-card">
+        <div class="card-content">
+          <p class="demo-text"><b>On-screen environmental sound:</b> A dog growls persistently, indicating its presence in a domestic setting, possibly as a pet.</p>
+          <p class="demo-text"><b>Off-screen speech:</b> Hey, easy now. It's okay...relax buddy.</p>
+        </div>
+
+        <div class="video-container">
+          <div class="card-content" style="padding-top:0">
+            <div class="video-frame">
+              <iframe src="./assets/videos/dog_demo.mp4"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+          <div class="column">
+            <h2 class="title is-3">Demo Video</h2>
+            <div class="publication-video">
+              <iframe src="./OmniSonic_demo.mp4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ########################################## -->
+
+<section class="teaser" style="display: none;">
+  
+<section class="teaser">
+  <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <div class="content has-text-justified">
+            <ol type="a">
+              <br>
+              <!-- rows removed -->
+              <!-- rows removed -->
+              <!-- rows removed -->
+            </ol>
+          </div>
+          <div class="hr"></div>
+        </div>
+      </div>
+  </div>
+</section>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{pian2023omnisonic,
+  title={OmniSonic: Towards Universal and Holistic Audio Generation from Video and Text},
+  author={Pian, Weiguo and Kushwaha, Saksham Singh and Chen, Zhimin and Deng, Shijian and Wang, Kai and Guo, Yunhui and Tian, Yapeng},
+  booktitle={Proceedings of the Computer Vision and Pattern Recognition Conference},
+  year={2026}
+}</code></pre>
+  </div>
+</section>
+
+<!-- <footer class="footer">
+  <div class="container">
+
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p> 
+            Acknowledgement : I would like to thank <a href='https://www.linkedin.com/in/anugyashah01/'>Anugya Shah</a> for helping in annotating WIPER-Bench videos.
+          </p>
+          <p> 
+            This website template is borrowed from <a href="https://github.com/ROSE2025-Inpaint/ROSE2025-Inpaint.github.io" target="_blank">Here</a>. 
+            Feel free to clone our website's <a href="https://github.com/sakshamsingh1/object_wiper_webpage" target="_blank">source code</a>.
+            Thank you!
+          </p>
+        </div>
+      </div>
+    </div> -->
+
+
+
+    <!--=================Visitor==========================-->
+<!--     <div class="content has-text-centered" style="padding:0 0 0 0">
+      <img src='https://api.infinitescript.com/badgen/count?name=sczhou/ProPainter&ltext=Visitors&color=3977dd' alt='visitors'>
+    </div> -->
+
+  </div>
+</footer>
+
+<!-- ########################################## -->
+
+  <!-- custom js file  -->
+  <script src="./assets/js/bulma-carousel.min.js"></script>
+  <script src="./assets/js/bulma-slider.min.js"></script>
+  <script src="./assets/js/index.js"></script>
+  <script src="./assets/js/jquery.event.move.js"></script>
+  <script src="./assets/js/jquery.twentytwenty.js"></script>
+  <script>
+  $(function(){
+    $(".twentytwenty-container").twentytwenty();
+  });
+  </script>
+
+  <script>
+    document.querySelectorAll("video").forEach(v => {
+      v.playbackRate = 0.55;
+    });
+
+    document.querySelectorAll("video.comparison-vid").forEach(v => {
+      v.playbackRate = 0.3;
+    });
+
+    document.querySelectorAll("video.comparison-vid2").forEach(v => {
+      v.playbackRate = 0.5;
+    });
+  </script>
+
+  <!-- <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const vids = document.querySelectorAll("video.comparison-vid");
+
+    let loaded = 0;
+    vids.forEach(v => {
+      v.addEventListener("loadeddata", () => {
+        loaded++;
+        if (loaded === vids.length) {
+          // Reset all videos to time=0
+          vids.forEach(vid => vid.currentTime = 0);
+
+          setTimeout(() => {
+            vids.forEach(vid => vid.play());
+          }, 50);
+        }
+      });
+    });
+  });
+  </script> -->
+
+</body>
+</html>

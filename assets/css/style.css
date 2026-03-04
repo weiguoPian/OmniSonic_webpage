@@ -1,0 +1,83 @@
+/* Shangchen */
+.logo img {
+    width: 100px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgb(255, 255, 255);
+}
+
+.logo img:hover {
+    width: 210px;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgb(255, 255, 255);
+}
+
+.container.is-max-desktop.head {
+    max-width: 95%;
+}
+
+.button.is-rounded:hover {
+    transform: scale(1.02);
+    background-color: #fb5a42;
+}
+
+.banner {
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.394),   /* top: soft white */
+        rgba(255, 255, 255, 0.859)    /* bottom: slightly more transparent white */
+    ) no-repeat center center;
+    min-height: 30vh;
+    color: black;
+    text-shadow: none;
+}
+
+
+.author-block a {
+    color: white;
+}
+
+/* Smaller than standard 960 (devices and browsers) */
+@media only screen and (max-width: 959px) {
+}
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+}
+
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px) {
+}
+
+
+/* ############################ */
+/* Fix Bulma Carousel arrows for the comparison slider */
+
+
+.carousel.collage-carousel {
+    max-width: 1500px; 
+    margin: 0 auto; 
+    position: relative;
+}
+
+/* Move left arrow closer */
+.carousel.collage-carousel .carousel-nav-left {
+    left: -20px !important;    /* Tune this number */
+}
+
+/* Move right arrow closer */
+.carousel.collage-carousel .carousel-nav-right {
+    right: -20px !important;   /* Tune this number */
+}
+
+/* Optional: make arrows nicer */
+.carousel.collage-carousel .carousel-nav-left,
+.carousel.collage-carousel .carousel-nav-right {
+    width: 45px;
+    height: 45px;
+    background: rgba(0,0,0,0.45);
+    border-radius: 50%;
+    backdrop-filter: blur(4px);
+}
+
+.carousel.collage-carousel {
+    overflow: hidden !important;   /* <<< THIS FIXES THE PEEKING */
+}
